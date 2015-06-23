@@ -1,0 +1,37 @@
+#{extends 'main.html' /}
+#{set title:'Login' /}
+
+#{set 'moreScripts'}
+<script>
+    $("a").click(function () {
+        var link = $(this);
+        $("#user").val(link.attr("href"));
+        return false;
+    });
+</script>
+#{/set}
+
+#{if flash.error}
+<h1>${flash.error}</h1>
+#{/if}
+
+<form action="@{Application.authenticate()}" method="POST">
+    <label for="user">What’s your OpenID?</label>
+    <input type="text" name="user" id="user" />
+    <input type="submit" value="login…" />
+</form>
+
+<dl>
+    <dt>Yahoo OpenID Identifier:</dt>
+    <dd>
+        <a href="https://me.yahoo.com">https://me.yahoo.com</a>
+        <br>
+        Works with 1.2.7 and 1.3.x
+    </dd>
+    <dt>Yahoo XRDS Location:</dt>
+    <dd>
+        <a href="https://open.login.yahooapis.com/openid20/www.yahoo.com/xrds">https://open.login.yahooapis.com/openid20/www.yahoo.com/xrds</a>
+        <br>
+        Does NOT work with 1.3.x, but works with 1.2.7
+    </dd>
+</dl>

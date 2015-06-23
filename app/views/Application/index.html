@@ -1,0 +1,6 @@
+#{extends 'main.html' /}
+#{set title:'Index' /}
+
+<h1>Hi ${session.user}!</h1>
+
+<a href="@{Application.logout()}">Logout</a>

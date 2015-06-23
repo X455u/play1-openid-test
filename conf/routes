@@ -1,0 +1,10 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+GET   /                     Application.index
+GET   /login                Application.login
+GET   /logout               Application.logout
+*     /authenticate         Application.authenticate
+
+GET     /public/                                staticDir:public
